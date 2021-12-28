@@ -44,7 +44,7 @@
                     </div>
                     @enderror
                 </div>
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="Rent for days" class="form-label">For how many days you want rent</label>
                     <input type="text" class="form-control @error('rent_for_days') is-invalid @enderror" id="rent_for_days" name="rent_for_days">
                     @error('rent_for_days')
@@ -61,7 +61,7 @@
                         <strong>{{ $message }}</strong>
                     </div>
                     @enderror
-                </div>
+                </div> -->
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

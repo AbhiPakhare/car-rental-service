@@ -20,7 +20,7 @@ class AgentCarController extends Controller
         if ($request->path() == "agent/booked_cabs"){
             $cars = Car::where('agent_id', auth()->user()->id)->whereNotNull('customer_id')->paginate(2);
         }else{
-
+            
         $cars = Car::where('agent_id', auth()->user()->id)->paginate(2);
         }
         return view('agent.index', compact('cars'));
@@ -45,8 +45,7 @@ class AgentCarController extends Controller
     public function store(StoreCarRequest $request)
     {
         $data = $request->except('_token');
-
-        Car::create($data+['agent_id' => auth()->user()->id, 'total_rent_of_one_ride' => ($request->rent_per_day * $request->rent_for_days)]);
+        Car::create($data+['agent_id' => auth()->user()->id]);
         return redirect(route('agent.cars.index'))->with('success', 'Car Registered successfully');
     }
 
@@ -81,7 +80,7 @@ class AgentCarController extends Controller
      */
     public function update(UpdateCarRequest $request, Car $car)
     {
-       $car->update($request->validated()+['total_rent_of_one_ride' => ($request->rent_per_day * $request->rent_for_days)]);
+       $car->update($request->validated());
        return redirect(route('agent.cars.show', [$car]));
     }
 

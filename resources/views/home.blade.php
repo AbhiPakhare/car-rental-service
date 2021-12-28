@@ -77,19 +77,8 @@
                             <dt class="col-sm-5">Agent Name</dt>
                             <dd class="col-sm-6">{{$car->agent->name}}</dd>
 
-                            <dt class="col-sm-5">Rent For how many days</dt>
-                            <dd class="col-sm-6">{{$car->rent_for_days}}</dd>
-
                             <dt class="col-sm-5">Rent Per day</dt>
                             <dd class="col-sm-6">{{$car->rent_per_day}}</dd>
-
-                            <dt class="col-sm-5">Start Date</dt>
-                            <dd class="col-sm-6">{{$car->start_date}}</dd>
-
-                            <dt class="col-sm-5">Total Rent</dt>
-                            <dd class="col-sm-6">{{$car->total_rent_of_one_ride}}</dd>
-
-
                             <dt class="col-sm-5">Registered on</dt>
                             <dd class="col-sm-6">{{\Carbon\Carbon::parse($car->created_at)->format('d-M-Y') }}</dd>
                         </dl>

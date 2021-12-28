@@ -49,24 +49,6 @@
                     </div>
                     @enderror
                 </div>
-                <div class="mb-3">
-                    <label for="Rent for days" class="form-label">For how many days you want rent</label>
-                    <input type="text" class="form-control @error('rent_for_days') is-invalid @enderror" id="rent_for_days" name="rent_for_days" value="{{$car->rent_for_days}}">
-                    @error('rent_for_days')
-                    <div class="invalid-feedback">
-                        <strong>{{ $message }}</strong>
-                    </div>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="Rent for days" class="form-label">Start date</label>
-                    <input type="date" class="form-control @error('start_date') is-invalid @enderror" id="start_date" name="start_date" value="{{$car->start_date}}">
-                    @error('start_date')
-                    <div class="invalid-feedback">
-                        <strong>{{ $message }}</strong>
-                    </div>
-                    @enderror
-                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

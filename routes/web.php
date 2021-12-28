@@ -40,6 +40,7 @@ Route::group([
     ], function () {
     });
     Route::get('/create_booking', [\App\Http\Controllers\HomeController::class,'createBooking'])->name('create_booking');
+    Route::get('/show_booked_cabs', [\App\Http\Controllers\HomeController::class,'showCustomerBookedCabs'])->name('show_booked_cabs');
     Route::post('/book_cab', [\App\Http\Controllers\HomeController::class,'bookCab'])->name('book_cab');
     Route::get('/register',[\App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
 });

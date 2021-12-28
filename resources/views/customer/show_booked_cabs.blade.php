@@ -1,13 +1,10 @@
-@extends('layouts.agent_layout')
+@extends('layouts.app')
 @section('content')
     <div class="card">
         <div class="card-body">
             <p>
                 From {{$cars->firstItem()}} - {{$cars->lastItem()}} out of {{ $cars->total() }} total car entries
             </p>
-            <div class="my-2">
-                <a href="{{route('agent.cars.create')}}" class="btn btn-primary me-md-2 btn-lg">Register Car</a>
-            </div>
             @if(session()->has('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{session()->get('success')}}
@@ -36,7 +33,6 @@
                                         <th scope="col">Registered on Platform</th>
                                         <th scope="col">Start Date</th>
                                         <th scope="col">Total Rent</th>
-                                        <th scope="col">Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -49,12 +45,6 @@
                                         <td>{{date_format($car->created_at,'d-M-Y')}}</td>
                                         <td>{{$car->start_date ?? "Not Allocated"}}</td>
                                         <td> {{$car->total_rent_of_one_ride ? "₹". $car->total_rent_of_one_ride : "Not Allocated"}}</td>
-                                        <td>
-                                            <div class="btn-group btn-group-lg" role="group" aria-label="Actions">
-                                                <a href="{{route('agent.cars.edit',[$car->id])}}" type="button" class="btn btn-warning text-white">Edit</a>
-                                                <a href="{{route('agent.cars.show',[$car])}}" type="button" class="btn btn-secondary text-white">Show</a>
-                                            </div>
-                                        </td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -66,10 +56,9 @@
             @empty
                 <div class="alert alert-success" role="alert">
                     Welcome {{auth()->user()->name}}
-
                 </div>
                 <div class="alert alert-secondary" role="alert">
-                    No Car registered Yet
+                    No Car Booked yet
                 </div>
             @endforelse
             <div class="my-5">

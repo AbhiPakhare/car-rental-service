@@ -28,8 +28,6 @@ class UpdateCarRequest extends FormRequest
             'vehicle_number' => ['required', 'string', 'max:15'],
             'seating_capacity' => ['required', 'integer', 'max:80'],
             'rent_per_day' => ['required', 'integer'],
-            'rent_for_days' => ['required'],
-            'start_date' => ['required'],
         ];
     }
 }
